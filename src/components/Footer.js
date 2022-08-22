@@ -2,9 +2,12 @@ import * as React from "react";
 
 export default function Footer(params) {
   return (
-    <footer className="site-footer bg-slate-100">
-      <div className="container mx-auto">
-        <p className="p-4 text-center">{`Copyright © ${new Date().getFullYear()}`}</p>
+    <footer className="site-footer mb-14 text-xs leading-5 text-slate-400">
+      <div className="container mx-auto border-t">
+        <p className="p-4 text-center">
+          {`Copyright © ${new Date().getFullYear()}`} Site Name <br />
+          All Rights Reserved
+        </p>
       </div>
     </footer>
   );

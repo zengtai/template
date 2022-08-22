@@ -5,7 +5,7 @@ export default function Grid({ items }) {
   return (
     <>
       {items.map((item) => (
-        <GridItem key={item.id} item={item} />
+        <GridItem key={item.gid} item={item} />
       ))}
     </>
   );
