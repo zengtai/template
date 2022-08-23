@@ -11,8 +11,8 @@ const Play = () => {
   const filteredData = data.find((item) => (item.gid = "CrayonPop"));
   return (
     <Layout>
-      <div className="relative overflow-hidden bg-black/20 xl:mx-auto xl:max-w-3xl">
-        <div className="relative z-10 my-4 flex flex-col items-center">
+      <div className="relative overflow-hidden bg-cyan-800/40 xl:mx-auto xl:max-w-3xl">
+        <div className="relative z-10 mt-6 flex flex-col items-center">
           <img
             className="mx-auto h-32 w-32 rounded-lg"
             src={filteredData.icon_url}
@@ -21,19 +21,11 @@ const Play = () => {
             height={200}
           />
           <h1 className="my-2 font-bold text-white drop-shadow">
-            <span>{`Play ${filteredData.title}`}</span>
+            <span>{`${filteredData.title}`}</span>
           </h1>
-          <div className="mb-2">
-            <Link
-              className="rounded-md bg-lime-500 p-1 text-xs uppercase text-white shadow"
-              to={`/category`}
-            >
-              Casual
-            </Link>
-          </div>
 
           <Banner
-            className={`mt-4`}
+            className={`my-4`}
             style={{ width: `320px` }}
             slot={ADS_SLOT_ID.detail}
             format={`auto`}
@@ -41,9 +33,9 @@ const Play = () => {
             key={`game-${Math.random()}`}
           />
 
-          <div className="mt-4">
+          <div className="mb-4">
             <a
-              className="block rounded-lg bg-sky-500 px-6 py-4 font-bold text-white shadow-md shadow-sky-400/50"
+              className="block rounded-lg bg-sky-500 px-6 py-4 font-bold text-white shadow-md shadow-black/10"
               href={filteredData.game_url}
               title={`Play ${filteredData.title} Now`}
             >
@@ -56,6 +48,13 @@ const Play = () => {
           src={filteredData.icon_url}
           alt={filteredData.title}
         />
+      </div>
+      <div className="m-4 space-x-2 text-sm">
+        <Link to={`/`}>Home</Link>
+        <span className="text-gray-300">/</span>
+        <Link to={`/category`}>{filteredData.category.name}</Link>
+        <span className="text-gray-300">/</span>
+        <span className="text-gray-400">{filteredData.title}</span>
       </div>
       <div className="m-4 text-sm">
         <h3 className="my-2 font-bold text-gray-600">Description</h3>

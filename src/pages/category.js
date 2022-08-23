@@ -8,10 +8,10 @@ import { ADS_SLOT_ID } from "../lib/constants";
 
 const Category = () => {
   // console.log(data);
-  const filteredData = data.filter((item) => (item.category.name = "Casual"));
+  const filteredData = data.filter((item) => item.category.name === "Casual");
   return (
     <Layout>
-      <h1 className="m-4 flex items-center justify-center gap-1.5 rounded-sm border bg-white p-3 font-bold text-cyan-600">
+      <h1 className="m-4 flex items-center justify-center space-x-2 rounded-sm border bg-white p-3 font-bold text-cyan-600">
         <CasualIcon />
         <span>Casual Games</span>
       </h1>
@@ -30,10 +30,10 @@ const Category = () => {
           <List items={filteredData.slice(9)} />
         </>
       ) : (
-        <List items={data.filteredData} />
+        <List items={filteredData} />
       )}
     </Layout>
   );
 };
-export const Head = () => <title>Recent Played</title>;
+export const Head = () => <title>Casual Games</title>;
 export default Category;

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export const IconHome = ({ current }) => {
-  return current ? (
+  return current === true ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
@@ -29,7 +29,7 @@ export const IconHome = ({ current }) => {
 };
 
 export const IconHistory = ({ current }) => {
-  return current ? (
+  return current === true ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
@@ -61,7 +61,7 @@ export const IconHistory = ({ current }) => {
 };
 
 export const IconCategory = ({ current }) => {
-  return current ? (
+  return current === true ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
@@ -89,7 +89,7 @@ export const IconCategory = ({ current }) => {
 };
 
 export const IconInformation = ({ current }) => {
-  return current ? (
+  return current === true ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"

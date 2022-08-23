@@ -18,8 +18,9 @@ import List from "../components/List";
 import { ADS_SLOT_ID } from "../lib/constants";
 
 const CategoryListPage = () => {
-  // console.log(data);
-
+  console.log(`data`, data.length);
+  let currentData = data.slice();
+  let mostlyPlayed = data.slice(0, 6);
   return (
     <Layout>
       <h1 className="m-4 flex justify-center text-xl font-bold text-cyan-600">
@@ -31,13 +32,13 @@ const CategoryListPage = () => {
             className="flex justify-between rounded-lg border bg-white p-3"
             to={`/category`}
           >
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center space-x-2">
               <CasualIcon />
               <span>Casual</span>
             </div>
             <div className="flex items-center gap-x-2">
               <ul className="flex -space-x-1">
-                {data
+                {currentData
                   .filter((item) => item.category.name === "Casual")
                   .slice(0, 3)
                   .map((item) => (
@@ -53,7 +54,10 @@ const CategoryListPage = () => {
                   ))}
               </ul>
               <span className="text-xs">
-                {data.filter((item) => item.category.name === "Casual").length}
+                {
+                  currentData.filter((item) => item.category.name === "Casual")
+                    .length
+                }
                 {"+"}
               </span>
             </div>
@@ -64,17 +68,17 @@ const CategoryListPage = () => {
             className="flex justify-between rounded-lg border bg-white p-3"
             to={`/category`}
           >
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center space-x-2">
               <PuzzleIcon />
               <span>Puzzle</span>
             </div>
             <div className="flex items-center gap-x-2">
               <ul className="flex -space-x-1.5">
-                {data
+                {currentData
                   .filter((item) => item.category.name === "Puzzle")
                   .slice(0, 3)
                   .map((item) => (
-                    <li key={item.gid}>
+                    <li key={`${item.gid}-${Math.random()}`}>
                       <img
                         className="rounded-full border-2 border-white"
                         src={item.icon_url}
@@ -85,8 +89,8 @@ const CategoryListPage = () => {
                     </li>
                   ))}
               </ul>
-              {data.filter((item) => item.category.name === "Puzzle").length >
-              3 ? (
+              {currentData.filter((item) => item.category.name === "Puzzle")
+                .length > 3 ? (
                 <span className="text-xs">+</span>
               ) : null}
             </div>
@@ -97,17 +101,19 @@ const CategoryListPage = () => {
             className="flex justify-between rounded-lg border bg-white p-3"
             to={`/category`}
           >
-            <div className="flex items-center gap-1.5">
-              <ActionIcon />
+            <div className="flex items-center space-x-2">
+              <span>
+                <ActionIcon />
+              </span>
               <span>Action</span>
             </div>
             <div className="flex items-center gap-x-2">
               <ul className="flex -space-x-1.5">
-                {data
+                {currentData
                   .filter((item) => item.category.name === "Action")
                   .slice(0, 3)
                   .map((item) => (
-                    <li key={item.gid}>
+                    <li key={`${item.gid}-${Math.random()}`}>
                       <img
                         className="rounded-full border-2 border-white"
                         src={item.icon_url}
@@ -118,12 +124,13 @@ const CategoryListPage = () => {
                     </li>
                   ))}
               </ul>
-              {data.filter((item) => item.category.name === "Action").length >
-              3 ? (
+              {currentData.filter((item) => item.category.name === "Action")
+                .length > 3 ? (
                 <span className="text-xs">
                   {
-                    data.filter((item) => item.category.name === "Action")
-                      .length
+                    currentData.filter(
+                      (item) => item.category.name === "Action"
+                    ).length
                   }
                   {`+`}
                 </span>
@@ -133,7 +140,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <ShootingIcon />
@@ -142,7 +149,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <SportsIcon />
@@ -151,7 +158,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <StrategyIcon />
@@ -160,7 +167,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <DefenseIcon />
@@ -169,7 +176,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <SimulationIcon />
@@ -178,7 +185,7 @@ const CategoryListPage = () => {
         </li>
         <li>
           <Link
-            className="flex items-center gap-1.5 rounded-lg border bg-white p-3"
+            className="flex items-center space-x-2 rounded-lg border bg-white p-3"
             to={`/category`}
           >
             <RacingIcon />
@@ -197,7 +204,7 @@ const CategoryListPage = () => {
       <h2 className="mx-4 my-2 p-2 text-center font-bold text-cyan-600">
         <span>- Most Played -</span>
       </h2>
-      <List items={data.slice(0, 6)} />
+      <List items={mostlyPlayed} />
     </Layout>
   );
 };

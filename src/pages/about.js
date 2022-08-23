@@ -12,7 +12,7 @@ const AboutPage = () => {
         <h1 className="text-xl font-bold drop-shadow">Site Name</h1>
         <p className="text-sm drop-shadow">Play Free Games Online</p>
       </div>
-      <ul className="m-4 grid gap-2">
+      <ul className="m-4 grid gap-2 text-sm">
         <li>
           <Link
             className="flex items-center justify-between rounded-lg border bg-white p-3"
