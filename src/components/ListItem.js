@@ -5,11 +5,14 @@ export default function ListItem({ item }) {
   return (
     <li>
       <div>
-        <Link to={`#`}>
+        <Link to={`/play`}>
           <img
-            className="rounded-xl shadow-lg"
+            className="rounded-xl bg-gray-100 shadow-lg"
             src={item.icon_url}
             alt={item.title}
+            width={200}
+            height={200}
+            loading={`lazy`}
           />
           <h2 className="sr-only mt-2 mb-1.5">
             <span className="block overflow-hidden text-ellipsis whitespace-nowrap text-xs font-bold text-slate-700">
@@ -20,7 +23,7 @@ export default function ListItem({ item }) {
         <div className="sr-only origin-left scale-90">
           <Link
             className="rounded-md bg-slate-200 p-1 text-xs uppercase"
-            to={`#`}
+            to={`/category`}
           >
             {item.category.name}
           </Link>

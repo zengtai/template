@@ -1,11 +1,10 @@
-import * as React from "react";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
+import * as React from "react";
 import { IconArrowRight } from "../components/Icons";
-import { data } from "../../data/games";
+import Layout from "../components/Layout";
 
 const AboutPage = () => {
-  console.log(data);
+  // console.log(data);
 
   return (
     <Layout>
@@ -17,7 +16,7 @@ const AboutPage = () => {
         <li>
           <Link
             className="flex items-center justify-between rounded-lg border bg-white p-3"
-            to={`/`}
+            to={`/privacy-policy`}
           >
             <span>Privacy Policy</span>
             <IconArrowRight className={`text-gray-400`} />
@@ -26,7 +25,7 @@ const AboutPage = () => {
         <li>
           <Link
             className="flex items-center justify-between rounded-lg  border bg-white p-3"
-            to={`/`}
+            to={`/terms-of-use`}
           >
             <span>Terms of Use</span>
             <IconArrowRight className={`text-gray-400`} />

@@ -1,11 +1,11 @@
 import * as React from "react";
 
-export default function Image({ name }) {
+export default function Image({ src, alt, width = `100px`, height = `100px` }) {
   return (
     <picture>
       <source srcSet="" type="image/avif" />
       <source srcSet="" type="image/webp" />
-      <img src="" alt="" width={100} height={100} />
+      <img src={src} alt={alt} width={width} height={height} />
     </picture>
   );
 }

@@ -4,11 +4,11 @@ import Layout from "../components/Layout";
 import List from "../components/List";
 
 const RecentPage = () => {
-  console.log(data);
+  // console.log(data);
 
   return (
     <Layout>
-      <h1 className="m-4 flex justify-center font-bold text-cyan-600">
+      <h1 className="m-4 flex justify-center text-xl font-bold text-cyan-600">
         <span>Recently Played</span>
       </h1>
 

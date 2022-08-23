@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.banner {
+  background-color: #ffffff;
+  background-size: 6px 6px;
+  background-image: repeating-linear-gradient(45deg, #cdcdcd50 0, #cdcdcd50 0.6px, #ffffff10 0, #ffffff10 50%);
+}
+
+ins.adsbygoogle .ad-placeholder {
+  display: none!important;
+}
+
+ins.adsbygoogle[data-ad-status="unfilled"] .ad-placeholder {
+  display: block;
+}
