@@ -1,6 +1,6 @@
 import * as React from "react";
-import { StaticImage } from "gatsby-plugin-image";
-import { ADS_ID } from "../lib/constants";
+import { ADS_ID, MODE } from "../lib/constants";
+import { Script } from "gatsby";
 
 export default function Banner({
   className,
@@ -12,13 +12,13 @@ export default function Banner({
   responsive,
   layoutKey,
 }) {
-  React.useEffect(() => {
-    try {
-      (window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error(e.message);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   try {
+  //     (window.adsbygoogle || []).push({});
+  //   } catch (e) {
+  //     console.error(e.message);
+  //   }
+  // }, []);
 
   return (
     <div className={className ? `banner ${className}` : `banner`}>
@@ -29,21 +29,29 @@ export default function Banner({
         className="adsbygoogle grid place-content-center bg-black/5"
         style={style}
         data-ad-layout={layout}
-        data-ad-format={format}
+        data-ad-format={format ? format : `auto`}
         data-ad-client={client}
         data-ad-slot={slot}
         data-ad-layout-key={layoutKey}
         data-full-width-responsive={responsive}
-        data-adtest="on"
-      >
-        <StaticImage
-          className="ad-placeholder"
-          src="../images/300x250.png"
-          alt="AD"
-          width={300}
-          height={250}
-        />
-      </ins>
+        {...(`${process.env.NODE_ENV}` === `development` || MODE === `dev`
+          ? { "data-adtest": "on" }
+          : null)}
+      ></ins>
+      <Script
+        id={Math.random()}
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              let adsbygoogle = window.adsbygoogle || [];
+              adsbygoogle.push({});
+              console.log("ad pushed");
+            } catch (e) {
+              console.error(e.message);
+            }
+          `,
+        }}
+      />
     </div>
   );
 }

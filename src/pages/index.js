@@ -1,44 +1,33 @@
 import * as React from "react";
 import Layout from "../components/Layout";
 import List from "../components/List";
-import { data } from "../../data/games";
+import { games } from "../../data/games";
 import Banner from "../components/Banner";
 import { IconNew, IconFire } from "../components/Icons";
 import { ADS_SLOT_ID } from "../lib/constants";
 
 const IndexPage = () => {
-  let tmpData = data.slice(3);
-
+  const topGames = games.filter((item) => item.featured === true);
+  const otherGames = games.filter((item) => item.featured !== true);
   const [randomData, setRandomData] = React.useState(
-    tmpData.sort(() => 0.5 - Math.random())
+    otherGames.slice().sort(() => 0.5 - Math.random())
   );
-  // console.log(`data`, data);
-
-  React.useEffect(() => {
-    setRandomData(tmpData.sort(() => 0.5 - Math.random()));
-
-    console.log(`randomData`, randomData);
-    // return () => {
-    //   setRandomData(data);
-    // };
-  }, [randomData, tmpData]);
 
   return (
     <Layout>
       <div>
         <Banner
           slot={ADS_SLOT_ID.home}
-          style={{ width: `320px`, margin: `0 auto` }}
-          format={`auto`}
           responsive={`false`}
+          style={{ width: `320px`, margin: `0 auto` }}
           key={`home-pos-1`}
         />
       </div>
       <h2 className="mx-4 mt-4 mb-2 flex font-bold text-cyan-600">
         <IconNew className="text-lime-500" />
-        <span>Latest</span>
+        <span>Recommended</span>
       </h2>
-      <List items={data.slice(0, 3)} />
+      <List items={topGames} />
       <h2 className="mx-4 mt-4 mb-2 flex font-bold text-cyan-600">
         <IconFire className="text-red-500" />
         <span>Popular</span>

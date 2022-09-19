@@ -10,7 +10,7 @@ import {
 export default function Navbar() {
   return (
     <nav className="site-header fixed bottom-0 z-50 w-full bg-lime-400">
-      <div className="container mx-auto pt-2 pb-4 text-xs">
+      <div className="container mx-auto pt-2 pb-8 text-xs">
         <ul className="mx-4 grid grid-cols-4 gap-x-4 text-center md:mx-0">
           <li>
             <Link

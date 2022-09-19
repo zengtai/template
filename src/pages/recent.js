@@ -1,5 +1,5 @@
 import * as React from "react";
-import { data } from "../../data/games";
+import { games } from "../../data/games";
 import Layout from "../components/Layout";
 import List from "../components/List";
 
@@ -12,7 +12,7 @@ const RecentPage = () => {
         <span>Recently Played</span>
       </h1>
 
-      <List items={data.slice(0, 2)} />
+      <List items={games.slice(0, 2)} />
     </Layout>
   );
 };

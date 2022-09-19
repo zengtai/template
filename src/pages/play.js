@@ -1,21 +1,28 @@
 import { Link } from "gatsby";
 import * as React from "react";
-import { data } from "../../data/games";
+import { games } from "../../data/games";
 import Banner from "../components/Banner";
 import List from "../components/List";
-import { ADS_SLOT_ID } from "../lib/constants";
+import { ADS_SLOT_ID, IMAGE_PATH, IMAGE_FORMAT } from "../lib/constants";
 import Layout from "../components/Layout";
 
 const Play = () => {
   // console.log(data);
-  const filteredData = data.find((item) => (item.gid = "CrayonPop"));
+  const filteredData = games.find((item) => (item.gid = "CrayonPop"));
   return (
     <Layout>
       <div className="relative overflow-hidden bg-cyan-800/40 xl:mx-auto xl:max-w-3xl">
         <div className="relative z-10 mt-6 flex flex-col items-center">
           <img
             className="mx-auto h-32 w-32 rounded-lg"
-            src={filteredData.icon_url}
+            src={
+              IMAGE_PATH +
+              IMAGE_FORMAT +
+              `/` +
+              filteredData.appid +
+              `.` +
+              IMAGE_FORMAT
+            }
             alt={filteredData.title}
             width={200}
             height={200}
@@ -63,7 +70,11 @@ const Play = () => {
       <h2 className="mx-4 my-2 p-2 text-center font-bold text-cyan-600">
         <span>- Most Played -</span>
       </h2>
-      <List items={data.slice(0, 6)} />
+      <List
+        items={data
+          .filter((item) => item.appid !== filteredData.appid)
+          .slice(0, 6)}
+      />
       <Banner
         className={`my-4 flex flex-col items-center`}
         style={{ width: `320px` }}

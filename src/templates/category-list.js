@@ -12,16 +12,16 @@ import {
   SimulationIcon,
   RacingIcon,
 } from "../components/Icons";
-import { games } from "../../data/games";
-// import { categories } from "../../data/categories";
+import { data } from "../../data/games";
+import { categories } from "../../data/categories";
 import Banner from "../components/Banner";
 import List from "../components/List";
 import { ADS_SLOT_ID, IMAGE_PATH, IMAGE_FORMAT } from "../lib/constants";
 
-const CategoryListPage = () => {
-  console.log(`data`, games.length);
-  let currentData = games.slice();
-  let mostlyPlayed = games.slice(0, 6);
+const CategoryListPage = ({ pageContext }) => {
+  console.log(`data`, data.length);
+  let currentData = data.slice();
+  let mostlyPlayed = data.slice(0, 6);
   return (
     <Layout>
       <h1 className="m-4 flex justify-center text-xl font-bold text-cyan-600">

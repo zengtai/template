@@ -1,5 +1,5 @@
 import * as React from "react";
-import { data } from "../../data/games";
+import { games } from "../../data/games";
 import Banner from "../components/Banner";
 import { CasualIcon } from "../components/Icons";
 import Layout from "../components/Layout";
@@ -8,7 +8,7 @@ import { ADS_SLOT_ID } from "../lib/constants";
 
 const Category = () => {
   // console.log(data);
-  const filteredData = data.filter((item) => item.category.name === "Casual");
+  const filteredData = games.filter((item) => item.category.name === "Casual");
   return (
     <Layout>
       <h1 className="m-4 flex items-center justify-center space-x-2 rounded-sm border bg-white p-3 font-bold text-cyan-600">

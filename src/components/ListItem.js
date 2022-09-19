@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import { IMAGE_FORMAT, IMAGE_PATH } from "../lib/constants";
 
 export default function ListItem({ item }) {
   return (
@@ -8,7 +9,9 @@ export default function ListItem({ item }) {
         <Link to={`/play`}>
           <img
             className="rounded-xl bg-gray-100 shadow-lg"
-            src={item.icon_url}
+            src={
+              IMAGE_PATH + IMAGE_FORMAT + `/` + item.appid + `.` + IMAGE_FORMAT
+            }
             alt={item.title}
             width={200}
             height={200}
